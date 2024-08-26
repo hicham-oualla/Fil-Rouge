@@ -17,7 +17,7 @@ public class Retard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Temporal(TemporalType.DATE)
+
     private Date date;
 
     private int durationDeRetard;
