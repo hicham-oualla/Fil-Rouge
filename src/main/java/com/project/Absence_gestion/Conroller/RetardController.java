@@ -14,13 +14,13 @@ public class RetardController {
     @Autowired
     private RetardService retardService;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<Retard> createRetard(@RequestBody Retard retard) {
         Retard createdRetard = retardService.saveRetard(retard);
         return ResponseEntity.ok(createdRetard);
     }
 
-    @GetMapping
+    @GetMapping("/AllRetrad")
     public ResponseEntity<List<Retard>> getAllRetards() {
         List<Retard> retards = retardService.getAllRetards();
         return ResponseEntity.ok(retards);
