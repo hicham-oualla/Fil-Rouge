@@ -1,5 +1,6 @@
 package com.project.Absence_gestion.Service;
 
+import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Model.Classe;
 import com.project.Absence_gestion.Repository.ClasseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class ClasseServiceImpl implements ClasseService{
+
     @Autowired
     private ClasseRepository classeRepository;
 
@@ -40,4 +42,10 @@ public class ClasseServiceImpl implements ClasseService{
         classeRepository.deleteById(id);
     }
 
+
+    @Override
+    public List<Apprenant> getApprenantsByClasse(Long classeId) {
+        Classe classe = classeRepository.findById(classeId).orElse(null);
+        return (classe != null) ? classe.getApprenants() : null;
+    }
 }
