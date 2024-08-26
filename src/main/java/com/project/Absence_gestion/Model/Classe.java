@@ -20,6 +20,7 @@ public class Classe {
 
     private String nom;
 
+
     @OneToMany(mappedBy = "classe")
     private List<Apprenant> apprenants;
 }
