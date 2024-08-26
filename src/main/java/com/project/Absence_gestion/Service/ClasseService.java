@@ -11,5 +11,5 @@ public interface ClasseService {
     Classe getClasseById(Long id);
     Classe updateClasse(Long id, Classe classe);
     void deleteClasse(Long id);
-    List<Apprenant> getApprenantsByClasse(Long classeId);
+
 }

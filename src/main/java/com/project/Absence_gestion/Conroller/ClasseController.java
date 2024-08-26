@@ -57,12 +57,5 @@ public class ClasseController {
     }
 
 
-    @GetMapping("/{classeId}/apprenants")
-    public ResponseEntity<List<Apprenant>> getApprenantsByClasse(@PathVariable Long classeId) {
-        List<Apprenant> apprenants = classeService.getApprenantsByClasse(classeId);
-        if (apprenants != null) {
-            return ResponseEntity.ok(apprenants);
-        }
-        return ResponseEntity.notFound().build();
-    }
+
 }
