@@ -1,5 +1,6 @@
 package com.project.Absence_gestion.Service;
 
+import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Model.Retard;
 import com.project.Absence_gestion.Repository.RetardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,10 @@ public class RetardServiceImpl implements  RetardService{
     @Override
     public void deleteRetard(Long id) {
         retardRepository.deleteById(id);
+    }
+    @Override
+    public long countRetardsByApprenant(Apprenant apprenant) {
+        return retardRepository.countByApprenant(apprenant);
     }
 }
 

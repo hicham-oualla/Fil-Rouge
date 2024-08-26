@@ -1,5 +1,6 @@
 package com.project.Absence_gestion.Service;
 
+import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Model.Retard;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface RetardService {
     Optional<Retard> getRetardById(Long id);
     Retard updateRetard(Long id, Retard retard);
     void deleteRetard(Long id);
+    long countRetardsByApprenant(Apprenant apprenant);
 }
