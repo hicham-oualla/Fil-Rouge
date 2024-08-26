@@ -32,6 +32,7 @@ public class ClasseServiceImpl implements ClasseService{
     public Classe updateClasse(Long id, Classe classe) {
         if (classeRepository.existsById(id)) {
             classe.setId(id);
+            classe.setNom(classe.getNom());
             return classeRepository.save(classe);
         }
         return null;
