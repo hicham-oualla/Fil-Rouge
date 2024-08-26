@@ -1,6 +1,7 @@
 package com.project.Absence_gestion.Model;
 
 
+import com.project.Absence_gestion.Model.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,7 +29,9 @@ public class Personne  {
     private String email;
 
     private String password;
+
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
 
-//    @Enumerated(EnumType.STRING)
-//    private Role role;

@@ -32,7 +32,7 @@ public class AbsenceServiceImpl implements AbsenceService {
             existingAbsence.setDatedebut(absenceDetails.getDatedebut());
             existingAbsence.setDatedefin(absenceDetails.getDatedefin());
             existingAbsence.setDuration(absenceDetails.getDuration());
-            existingAbsence.setAdmin(absenceDetails.getAdmin());
+
             existingAbsence.setApprenant(absenceDetails.getApprenant());
 
             return absenceRepository.save(existingAbsence);

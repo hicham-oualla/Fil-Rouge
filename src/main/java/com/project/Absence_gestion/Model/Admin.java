@@ -14,11 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Admin extends Personne {
 
-    @OneToMany(mappedBy = "admin")
-    private List<Absence> absences;
 
-    @OneToMany(mappedBy = "admin")
-    private List<Retard> retards;
 
     @OneToMany(mappedBy = "admin")
     private List<Justification> justifications;
