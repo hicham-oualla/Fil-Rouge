@@ -44,9 +44,5 @@ public class ClasseServiceImpl implements ClasseService{
     }
 
 
-    @Override
-    public List<Apprenant> getApprenantsByClasse(Long classeId) {
-        Classe classe = classeRepository.findById(classeId).orElse(null);
-        return (classe != null) ? classe.getApprenants() : null;
-    }
+
 }
