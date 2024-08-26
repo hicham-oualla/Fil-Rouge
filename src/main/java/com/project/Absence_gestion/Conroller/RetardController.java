@@ -1,4 +1,5 @@
 package com.project.Absence_gestion.Conroller;
+import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Model.Retard;
 import com.project.Absence_gestion.Service.RetardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,12 @@ public class RetardController {
     public ResponseEntity<Void> deleteRetard(@PathVariable Long id) {
         retardService.deleteRetard(id);
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/count/{apprenantId}")
+    public ResponseEntity<Long> countRetardsByApprenant(@PathVariable Long apprenantId) {
+        Apprenant apprenant = new Apprenant(); // Assuming you have a way to retrieve an apprenant
+        apprenant.setId(apprenantId);
+        long count = retardService.countRetardsByApprenant(apprenant);
+        return ResponseEntity.ok(count);
     }
 }
