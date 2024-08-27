@@ -1,5 +1,6 @@
 package com.project.Absence_gestion.Model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -17,7 +18,6 @@ import java.util.List;
 public class Apprenant extends Personne {
 
 
-
     @OneToMany(mappedBy = "apprenant")
     private List<Absence> absences;
 
@@ -30,4 +30,5 @@ public class Apprenant extends Personne {
     @ManyToOne
     @JoinColumn(name = "classe_id")
     private Classe classe;
+
 }
