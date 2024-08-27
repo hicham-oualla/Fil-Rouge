@@ -1,5 +1,6 @@
 package com.project.Absence_gestion.Conroller;
 import com.project.Absence_gestion.Model.Absence;
+import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Service.AbsenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,5 +54,12 @@ public class AbsenceController {
         } catch (RuntimeException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+    @GetMapping("/count/{apprenantId}")
+    public ResponseEntity<Long> countRetardsByApprenant(@PathVariable Long apprenantId) {
+        Apprenant apprenant = new Apprenant(); // Assuming you have a way to retrieve an apprenant
+        apprenant.setId(apprenantId);
+        long count = absenceService.countRetardsByApprenant(apprenant);
+        return ResponseEntity.ok(count);
     }
 }
