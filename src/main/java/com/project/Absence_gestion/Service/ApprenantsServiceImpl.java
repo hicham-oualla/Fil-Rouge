@@ -56,5 +56,13 @@ public class ApprenantsServiceImpl implements  ApprenantsService{
     public void deleteApprenant(Long id) {
         apprenantRepository.deleteById(id);
     }
+
+    @Override
+    public List<Apprenant> findAllByClasseId(Long classId) {
+     return apprenantRepository.findByClasseId(classId);
+    }
+
+
+
 }
 
