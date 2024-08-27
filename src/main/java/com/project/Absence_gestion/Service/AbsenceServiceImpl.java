@@ -1,6 +1,7 @@
 package com.project.Absence_gestion.Service;
 
 import com.project.Absence_gestion.Model.Absence;
+import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Repository.AbesenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,5 +50,9 @@ public class AbsenceServiceImpl implements AbsenceService {
     @Override
     public void deleteAbsence(Long id) {
         absenceRepository.deleteById(id);
+    }
+    @Override
+    public long countRetardsByApprenant(Apprenant apprenant) {
+        return absenceRepository.countByApprenant(apprenant);
     }
 }
