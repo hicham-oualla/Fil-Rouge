@@ -15,11 +15,13 @@ public class ClasseServiceImpl implements ClasseService{
 
     @Override
     public Classe saveClasse(Classe classe) {
+
         return classeRepository.save(classe);
     }
 
     @Override
     public List<Classe> getAllClasses() {
+
         return classeRepository.findAll();
     }
 

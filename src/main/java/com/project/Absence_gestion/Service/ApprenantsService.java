@@ -2,7 +2,7 @@ package com.project.Absence_gestion.Service;
 
 import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.dto.ApprenantDTO;
-import org.springframework.data.repository.query.Param;
+
 
 import java.util.List;
 

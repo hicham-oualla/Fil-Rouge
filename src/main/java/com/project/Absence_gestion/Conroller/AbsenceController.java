@@ -1,8 +1,8 @@
 package com.project.Absence_gestion.Conroller;
 import com.project.Absence_gestion.Model.Absence;
+import com.project.Absence_gestion.dto.AbsenceDTO;
 import com.project.Absence_gestion.Service.AbsenceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,38 +20,48 @@ public class AbsenceController {
     }
 
 
-    @PostMapping("/addAbsence")
-    public ResponseEntity<Absence> addAbsence(@RequestBody Absence absence) {
-        Absence createdAbsence = absenceService.addAbsence(absence);
-        return new ResponseEntity<>(createdAbsence, HttpStatus.CREATED);
+    @PostMapping
+    public ResponseEntity<AbsenceDTO> addAbsence(@RequestBody AbsenceDTO absenceDTO) {
+        AbsenceDTO createdAbsence = absenceService.addAbsence(absenceDTO);
+        return ResponseEntity.ok(createdAbsence);
+    }
+
+
+    @GetMapping
+    public ResponseEntity<List<AbsenceDTO>> getAllAbsences() {
+        List<AbsenceDTO> absences = absenceService.getAllAbsence();
+        return ResponseEntity.ok(absences);
+    }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AbsenceDTO> getAbsenceById(@PathVariable Long id) {
+        List<AbsenceDTO> absences = absenceService.getAllAbsence();
+        AbsenceDTO absence = absences.stream()
+                .filter(absenceDTO -> absenceDTO.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Absence not found with id: " + id));
+        return ResponseEntity.ok(absence);
     }
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<Absence> editAbsence(@PathVariable Long id, @RequestBody Absence absenceDetails) {
-        try {
-            Absence updatedAbsence = absenceService.editAbsence(id, absenceDetails);
-            return new ResponseEntity<>(updatedAbsence, HttpStatus.OK);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-
-    @GetMapping("/allabsence")
-    public ResponseEntity<List<Absence>> getAllAbsences() {
-        List<Absence> absences = absenceService.getAllAbsence();
-        return new ResponseEntity<>(absences, HttpStatus.OK);
+    public ResponseEntity<AbsenceDTO> editAbsence(@PathVariable Long id, @RequestBody AbsenceDTO absenceDetails) {
+        AbsenceDTO updatedAbsence = absenceService.editAbsence(id, absenceDetails);
+        return ResponseEntity.ok(updatedAbsence);
     }
 
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAbsence(@PathVariable Long id) {
-        try {
-            absenceService.deleteAbsence(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        absenceService.deleteAbsence(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
+    @PostMapping("/add")
+    public Absence newabsence(@RequestBody Absence absence) {
+
+        return absenceService.newabsence(absence);
     }
 }

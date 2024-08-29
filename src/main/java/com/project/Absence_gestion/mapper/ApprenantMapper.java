@@ -23,4 +23,5 @@ public interface ApprenantMapper {
 
     @Mapping(source = "classeId", target = "classe.id")
    List<Apprenant> toEntity(List<ApprenantDTO> apprenantDTO);
+
 }

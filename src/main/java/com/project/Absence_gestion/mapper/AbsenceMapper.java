@@ -1,0 +1,18 @@
+package com.project.Absence_gestion.mapper;
+import com.project.Absence_gestion.dto.AbsenceDTO;
+import com.project.Absence_gestion.Model.Absence;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
+
+@Mapper(componentModel = "spring")
+public interface AbsenceMapper {
+
+    AbsenceMapper INSTANCE = Mappers.getMapper(AbsenceMapper.class);
+
+    @Mapping(source = "apprenant.id", target = "apprenantId")
+    AbsenceDTO toDTO(Absence absence);
+
+    @Mapping(source = "apprenantId", target = "apprenant.id")
+    Absence toEntity(AbsenceDTO absenceDTO);
+}
