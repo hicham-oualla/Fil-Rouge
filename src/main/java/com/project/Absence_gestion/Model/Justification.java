@@ -15,14 +15,12 @@ public class Justification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Temporal(TemporalType.DATE)
+
     private Date date;
 
     private int durationDeRetard;
 
-    @ManyToOne
-    @JoinColumn(name = "admin_id")
-    private Admin admin;
+
 
     @ManyToOne
     @JoinColumn(name = "apprenant_id")
