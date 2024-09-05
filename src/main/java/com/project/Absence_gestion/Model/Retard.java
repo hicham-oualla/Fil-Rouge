@@ -1,5 +1,6 @@
 package com.project.Absence_gestion.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.Absence_gestion.Model.enums.Etat_retard;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,12 +23,14 @@ public class Retard {
 
     private int durationDeRetard;
 
+    @Enumerated(EnumType.STRING)
+    private Etat_retard etat_retard;
 
 
     @ManyToOne
     @JoinColumn(name = "apprenant_id")
     private Apprenant apprenant;
-    @Enumerated(EnumType.STRING)
-    private Etat_retard etat_retard;
+
+
 
 }

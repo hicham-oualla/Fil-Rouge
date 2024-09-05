@@ -2,22 +2,37 @@ package com.project.Absence_gestion.Service;
 
 import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Model.Retard;
+import com.project.Absence_gestion.Model.enums.Etat_retard;
+import com.project.Absence_gestion.Repository.ApprenantRepository;
 import com.project.Absence_gestion.Repository.RetardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RetardServiceImpl implements  RetardService{
+public class RetardServiceImpl implements RetardService {
 
     @Autowired
     private RetardRepository retardRepository;
 
+    @Autowired
+    private ApprenantRepository apprenantRepository;
+
     @Override
-    public Retard saveRetard(Retard retard) {
-        return retardRepository.save(retard);
+    public ResponseEntity<Retard> saveRetard(Retard retard, Long apprenantId) {
+        Optional<Apprenant> apprenantOptional = apprenantRepository.findById(apprenantId);
+        if (apprenantOptional.isPresent()) {
+            Apprenant apprenant = apprenantOptional.get();
+            retard.setEtat_retard(Etat_retard.NONJUSITIFIER);
+            retard.setApprenant(apprenant);
+            Retard savedRetard = retardRepository.save(retard);
+            return ResponseEntity.ok(savedRetard);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @Override
@@ -32,12 +47,12 @@ public class RetardServiceImpl implements  RetardService{
 
     @Override
     public Retard updateRetard(Long id, Retard retard) {
-        Optional<Retard> existingRetardOpt = retardRepository.findById(id);
-        if (existingRetardOpt.isPresent()) {
-            Retard existingRetard = existingRetardOpt.get();
+        Optional<Retard> existingRetardOptional = retardRepository.findById(id);
+        if (existingRetardOptional.isPresent()) {
+            Retard existingRetard = existingRetardOptional.get();
+            // Update fields of existingRetard with new values from retard
             existingRetard.setDate(retard.getDate());
             existingRetard.setDurationDeRetard(retard.getDurationDeRetard());
-            existingRetard.setApprenant(retard.getApprenant());
             existingRetard.setEtat_retard(retard.getEtat_retard());
             return retardRepository.save(existingRetard);
         }
@@ -48,9 +63,19 @@ public class RetardServiceImpl implements  RetardService{
     public void deleteRetard(Long id) {
         retardRepository.deleteById(id);
     }
+
     @Override
     public long countRetardsByApprenant(Apprenant apprenant) {
         return retardRepository.countByApprenant(apprenant);
     }
-}
 
+    @Override
+    public Optional<List<Retard>> findByApprenant(Long apprenantId) {
+        Optional<Apprenant> apprenantOptional = apprenantRepository.findById(apprenantId);
+        if (apprenantOptional.isPresent()) {
+            return Optional.of(retardRepository.findByApprenant(apprenantOptional.get()));
+        } else {
+            return Optional.empty();
+        }
+    }
+}

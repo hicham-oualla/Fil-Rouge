@@ -7,8 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ApprenantRepository extends JpaRepository<Apprenant, Long> {
+
     @Query(value = "SELECT * FROM personne WHERE classe_id =?1;", nativeQuery = true)
     List<Apprenant> findByClasseId(Long classId);
+
+Optional<Apprenant> findApprenantByid(Long id);
+//    Optional<Apprenant> findByApprenantId(Long apprenantId);
+
+    @Override
+    Optional<Apprenant> findById(Long id);
 }

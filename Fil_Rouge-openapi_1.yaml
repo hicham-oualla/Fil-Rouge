@@ -1,0 +1,585 @@
+openapi: "3.1.0"
+info:
+  title: "Fil_Rouge API"
+  description: "Fil_Rouge API"
+  version: "1.0.0"
+servers:
+  - url: "https://Fil_Rouge"
+paths:
+  /api/absences/AbsencebyID/{id}:
+    get:
+      summary: "GET api/absences/AbsencebyID/{id}"
+      operationId: "getAbsenceById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Absence"
+  /api/absences/Add:
+    post:
+      summary: "POST api/absences/Add"
+      operationId: "saveAbsence"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AbsenceDTO"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Absence"
+  /api/absences/Edit/{id}:
+    put:
+      summary: "PUT api/absences/Edit/{id}"
+      operationId: "updateAbsence"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AbsenceDTO"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Absence"
+  /api/absences/GetAbsenceBYapprenant/{apprenantId}:
+    get:
+      summary: "GET api/absences/GetAbsenceBYapprenant/{apprenantId}"
+      operationId: "getAbsencesByApprenant"
+      parameters:
+        - name: "apprenantId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Absence"
+  /api/absences/countABS/apprenant/{apprenantId}:
+    get:
+      summary: "GET api/absences/countABS/apprenant/{apprenantId}"
+      operationId: "countAbsencesByApprenant"
+      parameters:
+        - name: "apprenantId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int64"
+  /api/absences/delete/{id}:
+    delete:
+      summary: "DELETE api/absences/delete/{id}"
+      operationId: "deleteAbsence"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Void"
+  /api/absences/getALL:
+    get:
+      summary: "GET api/absences/getALL"
+      operationId: "getAllAbsences"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Absence"
+  /api/retards/All:
+    get:
+      summary: "GET api/retards/All"
+      operationId: "getAllRetards"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Retard"
+  /api/retards/countRetardsByApprenant/{apprenantId}:
+    get:
+      summary: "GET api/retards/countRetardsByApprenant/{apprenantId}"
+      operationId: "countRetardsByApprenant"
+      parameters:
+        - name: "apprenantId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int64"
+  /api/retards/deleteRetard/{id}:
+    delete:
+      summary: "DELETE api/retards/deleteRetard/{id}"
+      operationId: "deleteRetard"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Void"
+  /api/retards/getRetardById/{id}:
+    get:
+      summary: "GET api/retards/getRetardById/{id}"
+      operationId: "getRetardById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Retard"
+  /api/retards/getRetardsByApprenant/{apprenantId}:
+    get:
+      summary: "GET api/retards/getRetardsByApprenant/{apprenantId}"
+      operationId: "getRetardsByApprenant"
+      parameters:
+        - name: "apprenantId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Retard"
+  /api/retards/saveRetard&app/{apprenantId}:
+    post:
+      summary: "POST api/retards/saveRetard&app/{apprenantId}"
+      operationId: "saveRetard"
+      parameters:
+        - name: "apprenantId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Retard"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Retard"
+  /api/retards/updateRetard/{id}:
+    put:
+      summary: "PUT api/retards/updateRetard/{id}"
+      operationId: "updateRetard"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Retard"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Retard"
+  /api/classes/Add:
+    post:
+      summary: "POST api/classes/Add"
+      operationId: "createClasse"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Classe"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Classe"
+  /api/classes/deleteClasse/{id}:
+    delete:
+      summary: "DELETE api/classes/deleteClasse/{id}"
+      operationId: "deleteClasse"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Void"
+  /api/classes/getAllClasses:
+    get:
+      summary: "GET api/classes/getAllClasses"
+      operationId: "getAllClasses"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Classe"
+  /api/classes/getClasseById/{id}:
+    get:
+      summary: "GET api/classes/getClasseById/{id}"
+      operationId: "getClasseById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Classe"
+  /api/classes/updateClasse/{id}:
+    put:
+      summary: "PUT api/classes/updateClasse/{id}"
+      operationId: "updateClasse"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Classe"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Classe"
+  /api/apprenants/ADD:
+    post:
+      summary: "POST api/apprenants/ADD"
+      operationId: "createApprenant"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Apprenant"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Apprenant"
+  /api/apprenants/Allapprenants/byclasse/{classId}:
+    get:
+      summary: "GET api/apprenants/Allapprenants/byclasse/{classId}"
+      operationId: "findAllByClasseId"
+      parameters:
+        - name: "classId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Apprenant"
+  /api/apprenants/FindAPPby/{id}:
+    get:
+      summary: "GET api/apprenants/FindAPPby/{id}"
+      operationId: "findApprenantById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Apprenant"
+  /api/apprenants/GetALL:
+    get:
+      summary: "GET api/apprenants/GetALL"
+      operationId: "getAllApprenants"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Apprenant"
+  /api/apprenants/delete/{id}:
+    delete:
+      summary: "DELETE api/apprenants/delete/{id}"
+      operationId: "deleteApprenant"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Void"
+  /api/apprenants/edit/{id}:
+    put:
+      summary: "PUT api/apprenants/edit/{id}"
+      operationId: "updateApprenant"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Apprenant"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Apprenant"
+  /api/apprenants/getApprenants/{id}:
+    get:
+      summary: "GET api/apprenants/getApprenants/{id}"
+      operationId: "getApprenantById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Apprenant"
+components:
+  schemas:
+    Apprenant:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        nom:
+          type: "string"
+        email:
+          type: "string"
+        password:
+          type: "string"
+        role:
+          type: "string"
+          enum:
+            - "admin"
+            - "apprenant"
+    Absence:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        datedebut:
+          type: "string"
+          format: "date-time"
+        datedefin:
+          type: "string"
+          format: "date-time"
+        duration:
+          type: "integer"
+          format: "int32"
+        apprenant:
+          $ref: "#/components/schemas/Apprenant"
+        etat_absence:
+          type: "string"
+          enum:
+            - "JUSITIFIER"
+            - "NONJUSITIFIER"
+    AbsenceDTO:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        datedebut:
+          type: "string"
+          format: "date-time"
+        datedefin:
+          type: "string"
+          format: "date-time"
+        duration:
+          type: "integer"
+          format: "int32"
+        apprenantId:
+          type: "integer"
+          format: "int64"
+        etat_absence:
+          type: "string"
+          enum:
+            - "JUSITIFIER"
+            - "NONJUSITIFIER"
+    Void:
+      type: "object"
+      properties: { }
+    Retard:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        date:
+          type: "string"
+          format: "date-time"
+        durationDeRetard:
+          type: "integer"
+          format: "int32"
+        etat_retard:
+          type: "string"
+          enum:
+            - "JUSITIFIER"
+            - "NONJUSITIFIER"
+        apprenant:
+          $ref: "#/components/schemas/Apprenant"
+    Classe:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        nom:
+          type: "string"
