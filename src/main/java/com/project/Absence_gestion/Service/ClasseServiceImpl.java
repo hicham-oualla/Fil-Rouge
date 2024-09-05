@@ -1,6 +1,6 @@
 package com.project.Absence_gestion.Service;
 
-import com.project.Absence_gestion.Model.Apprenant;
+
 import com.project.Absence_gestion.Model.Classe;
 import com.project.Absence_gestion.Repository.ClasseRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,54 +2,52 @@ package com.project.Absence_gestion.Service;
 
 import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Repository.ApprenantRepository;
-import com.project.Absence_gestion.Repository.ClasseRepository;
-import com.project.Absence_gestion.dto.ApprenantDTO;
-import com.project.Absence_gestion.mapper.ApprenantMapper;
-import jakarta.persistence.EntityNotFoundException;
+import com.project.Absence_gestion.Service.ApprenantsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
-@Service
-public class ApprenantsServiceImpl implements  ApprenantsService{
+import java.util.Optional;
 
-    @Autowired
+@Service
+public class ApprenantsServiceImpl implements ApprenantsService {
+
+
     private ApprenantRepository apprenantRepository;
 
     @Autowired
-    private ClasseRepository classeRepository;
-
-    @Autowired
-    private ApprenantMapper apprenantMapper;
-
-    @Override
-    public ApprenantDTO createApprenant(ApprenantDTO apprenantDTO) {
-        Apprenant apprenant = apprenantMapper.toEntity(apprenantDTO);
-        return apprenantMapper.toDTO(apprenantRepository.save(apprenant));
+    public ApprenantsServiceImpl(ApprenantRepository apprenantRepository) {
+        this.apprenantRepository = apprenantRepository;
     }
 
     @Override
-    public ApprenantDTO getApprenantById(Long id) {
-        Apprenant apprenant = apprenantRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Apprenant not found"));
-        return apprenantMapper.toDTO(apprenant);
+    public Apprenant createApprenant(Apprenant apprenant) {
+        return apprenantRepository.save(apprenant);
     }
 
     @Override
-    public List<ApprenantDTO> getAllApprenants() {
-        return apprenantRepository.findAll().stream()
-                .map(apprenantMapper::toDTO)
-                .collect(Collectors.toList());
+    public Apprenant getApprenantById(Long id) {
+        return apprenantRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Apprenant not found with id: " + id));
     }
 
     @Override
-    public ApprenantDTO updateApprenant(Long id, ApprenantDTO apprenantDTO) {
-        Apprenant existingApprenant = apprenantRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Apprenant not found"));
-        Apprenant updatedApprenant = apprenantMapper.toEntity(apprenantDTO);
-        updatedApprenant.setId(existingApprenant.getId());  // Preserve the ID
-        return apprenantMapper.toDTO(apprenantRepository.save(updatedApprenant));
+    public List<Apprenant> getAllApprenants() {
+        return apprenantRepository.findAll();
+    }
+
+    @Override
+    public Apprenant updateApprenant(Long id, Apprenant apprenant) {
+        Apprenant existingApprenant = getApprenantById(id);
+        existingApprenant.setNom(apprenant.getNom());
+        existingApprenant.setEmail(apprenant.getEmail());
+        existingApprenant.setPassword(apprenant.getPassword());
+        existingApprenant.setRole(apprenant.getRole());
+        existingApprenant.setClasse(apprenant.getClasse());
+        existingApprenant.setAbsences(apprenant.getAbsences());
+        existingApprenant.setRetards(apprenant.getRetards());
+        existingApprenant.setJustifications(apprenant.getJustifications());
+        return apprenantRepository.save(existingApprenant);
     }
 
     @Override
@@ -57,12 +55,15 @@ public class ApprenantsServiceImpl implements  ApprenantsService{
         apprenantRepository.deleteById(id);
     }
 
+
     @Override
-    public List<Apprenant> findAllByClasseId(Long classId) {
-     return apprenantRepository.findByClasseId(classId);
+    public Optional<Apprenant> findById(Long id) {
+        return apprenantRepository.findById(id);
     }
 
 
-
+@Override
+public List<Apprenant> findAllByClasseId(Long classId) {
+    return apprenantRepository.findByClasseId(classId);
 }
-
+}

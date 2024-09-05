@@ -1,67 +1,74 @@
 package com.project.Absence_gestion.Conroller;
+
+
 import com.project.Absence_gestion.Model.Absence;
-import com.project.Absence_gestion.dto.AbsenceDTO;
 import com.project.Absence_gestion.Service.AbsenceService;
+import com.project.Absence_gestion.dto.AbsenceDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/api/absences")
 public class AbsenceController {
 
-    private final AbsenceService absenceService;
-
     @Autowired
-    public AbsenceController(AbsenceService absenceService) {
-        this.absenceService = absenceService;
+    private AbsenceService absenceService;
+
+    // Save a new Absence
+    @PostMapping("/Add")
+    public ResponseEntity<Absence> saveAbsence(@RequestBody AbsenceDTO absenceDTO) {
+        return absenceService.saveAbsence(absenceDTO);
     }
 
-
-    @PostMapping
-    public ResponseEntity<AbsenceDTO> addAbsence(@RequestBody AbsenceDTO absenceDTO) {
-        AbsenceDTO createdAbsence = absenceService.addAbsence(absenceDTO);
-        return ResponseEntity.ok(createdAbsence);
+    // Get all Absences
+    @GetMapping("/getALL")
+    public List<Absence> getAllAbsences() {
+        return absenceService.getAllAbsences();
     }
 
-
-    @GetMapping
-    public ResponseEntity<List<AbsenceDTO>> getAllAbsences() {
-        List<AbsenceDTO> absences = absenceService.getAllAbsence();
-        return ResponseEntity.ok(absences);
+    // Get Absence by ID
+    @GetMapping("/AbsencebyID/{id}")
+    public ResponseEntity<Absence> getAbsenceById(@PathVariable Long id) {
+        Optional<Absence> absence = absenceService.getAbsenceById(id);
+        return absence.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-
-    @GetMapping("/{id}")
-    public ResponseEntity<AbsenceDTO> getAbsenceById(@PathVariable Long id) {
-        List<AbsenceDTO> absences = absenceService.getAllAbsence();
-        AbsenceDTO absence = absences.stream()
-                .filter(absenceDTO -> absenceDTO.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Absence not found with id: " + id));
-        return ResponseEntity.ok(absence);
+    // Update an Absence
+    @PutMapping("/Edit/{id}")
+    public ResponseEntity<Absence> updateAbsence(@PathVariable Long id, @RequestBody AbsenceDTO absenceDTO) {
+        Absence updatedAbsence = absenceService.updateAbsence(id, absenceDTO);
+        if (updatedAbsence != null) {
+            return ResponseEntity.ok(updatedAbsence);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-
-    @PutMapping("/{id}")
-    public ResponseEntity<AbsenceDTO> editAbsence(@PathVariable Long id, @RequestBody AbsenceDTO absenceDetails) {
-        AbsenceDTO updatedAbsence = absenceService.editAbsence(id, absenceDetails);
-        return ResponseEntity.ok(updatedAbsence);
-    }
-
-
-    @DeleteMapping("/{id}")
+    // Delete an Absence
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteAbsence(@PathVariable Long id) {
         absenceService.deleteAbsence(id);
         return ResponseEntity.noContent().build();
     }
 
+    // Count Absences by Apprenant
+    @GetMapping("/countABS/apprenant/{apprenantId}")
+    public ResponseEntity<Long> countAbsencesByApprenant(@PathVariable Long apprenantId) {
+        long count = absenceService.countAbsencesByApprenant(apprenantId);
+        return ResponseEntity.ok(count);
+    }
 
-    @PostMapping("/add")
-    public Absence newabsence(@RequestBody Absence absence) {
-
-        return absenceService.newabsence(absence);
+    // Get Absences by Apprenant ID
+    @GetMapping("/GetAbsenceBYapprenant/{apprenantId}")
+    public ResponseEntity<List<Absence>> getAbsencesByApprenant(@PathVariable Long apprenantId) {
+        Optional<List<Absence>> absences = absenceService.findByApprenant(apprenantId);
+        return absences.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

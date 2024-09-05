@@ -18,7 +18,7 @@ public class Justification {
 
     private Date date;
 
-    private int durationDeRetard;
+
 
 
 

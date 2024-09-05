@@ -1,6 +1,7 @@
 package com.project.Absence_gestion.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,5 +23,6 @@ public class Classe {
 
 
     @OneToMany(mappedBy = "classe")
+    @JsonIgnore
     private List<Apprenant> apprenants;
 }

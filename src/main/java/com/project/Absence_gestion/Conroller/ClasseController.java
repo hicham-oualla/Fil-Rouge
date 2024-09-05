@@ -16,21 +16,21 @@ public class ClasseController {
     private ClasseService classeService;
 
 
-    @PostMapping
+    @PostMapping("/Add")
     public ResponseEntity<Classe> createClasse(@RequestBody Classe classe) {
         Classe savedClasse = classeService.saveClasse(classe);
         return ResponseEntity.ok(savedClasse);
     }
 
 
-    @GetMapping
+    @GetMapping("/getAllClasses")
     public ResponseEntity<List<Classe>> getAllClasses() {
         List<Classe> classes = classeService.getAllClasses();
         return ResponseEntity.ok(classes);
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/getClasseById/{id}")
     public ResponseEntity<Classe> getClasseById(@PathVariable Long id) {
         Classe classe = classeService.getClasseById(id);
         if (classe != null) {
@@ -40,7 +40,7 @@ public class ClasseController {
     }
 
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateClasse/{id}")
     public ResponseEntity<Classe> updateClasse(@PathVariable Long id, @RequestBody Classe classe) {
         Classe updatedClasse = classeService.updateClasse(id, classe);
         if (updatedClasse != null) {
@@ -50,7 +50,7 @@ public class ClasseController {
     }
 
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteClasse/{id}")
     public ResponseEntity<Void> deleteClasse(@PathVariable Long id) {
         classeService.deleteClasse(id);
         return ResponseEntity.noContent().build();

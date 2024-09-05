@@ -1,22 +1,22 @@
 package com.project.Absence_gestion.Service;
 
 import com.project.Absence_gestion.Model.Apprenant;
-import com.project.Absence_gestion.dto.ApprenantDTO;
-
-
 import java.util.List;
+import java.util.Optional;
 
 public interface ApprenantsService {
 
-    ApprenantDTO createApprenant(ApprenantDTO apprenantDTO);
+    Apprenant createApprenant(Apprenant apprenant);
 
-    ApprenantDTO getApprenantById(Long id);
+    Apprenant getApprenantById(Long id);
 
-    List<ApprenantDTO> getAllApprenants();
+    List<Apprenant> getAllApprenants();
 
-    ApprenantDTO updateApprenant(Long id, ApprenantDTO apprenantDTO);
+    Apprenant updateApprenant(Long id, Apprenant apprenant);
 
     void deleteApprenant(Long id);
 
     List<Apprenant> findAllByClasseId(Long classId);
+
+    Optional<Apprenant> findById(Long id);
 }
