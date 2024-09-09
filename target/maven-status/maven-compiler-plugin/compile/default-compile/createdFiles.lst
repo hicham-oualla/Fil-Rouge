@@ -18,7 +18,9 @@ com\project\Absence_gestion\Model\Admin.class
 com\project\Absence_gestion\Model\Absence.class
 com\project\Absence_gestion\dto\ApprenantDTO.class
 com\project\Absence_gestion\Service\RetardServiceImpl.class
+com\project\Absence_gestion\mapper\ApprenantMapper.class
 com\project\Absence_gestion\Model\Justification.class
+com\project\Absence_gestion\mapper\ApprenantMapperImpl.class
 com\project\Absence_gestion\Conroller\ClasseController.class
 com\project\Absence_gestion\Model\Classe.class
 com\project\Absence_gestion\mapper\AbsenceMapper.class
