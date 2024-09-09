@@ -1,6 +1,6 @@
 package com.project.Absence_gestion.Conroller;
 
-import com.project.Absence_gestion.Model.Apprenant;
+import com.project.Absence_gestion.dto.ApprenantDTO;
 import com.project.Absence_gestion.Service.ApprenantsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,39 +13,39 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/apprenants")
 public class ApprenantController {
-    @Autowired
-    private  ApprenantsService apprenantsService;
+
+    private final ApprenantsService apprenantsService;
 
     @Autowired
-    public void ApprenantsController(ApprenantsService apprenantsService) {
+    public ApprenantController(ApprenantsService apprenantsService) {
         this.apprenantsService = apprenantsService;
     }
 
     // Create a new Apprenant
     @PostMapping("/ADD")
-    public ResponseEntity<Apprenant> createApprenant(@RequestBody Apprenant apprenant) {
-        Apprenant createdApprenant = apprenantsService.createApprenant(apprenant);
+    public ResponseEntity<ApprenantDTO> createApprenant(@RequestBody ApprenantDTO apprenantDTO) {
+        ApprenantDTO createdApprenant = apprenantsService.createApprenant(apprenantDTO);
         return new ResponseEntity<>(createdApprenant, HttpStatus.CREATED);
     }
 
     // Get an Apprenant by ID
     @GetMapping("/getApprenants/{id}")
-    public ResponseEntity<Apprenant> getApprenantById(@PathVariable Long id) {
-        Apprenant apprenant = apprenantsService.getApprenantById(id);
-        return new ResponseEntity<>(apprenant, HttpStatus.OK);
+    public ResponseEntity<ApprenantDTO> getApprenantById(@PathVariable Long id) {
+        ApprenantDTO apprenantDTO = apprenantsService.getApprenantById(id);
+        return new ResponseEntity<>(apprenantDTO, HttpStatus.OK);
     }
 
     // Get all Apprenants
     @GetMapping("/GetALL")
-    public ResponseEntity<List<Apprenant>> getAllApprenants() {
-        List<Apprenant> apprenants = apprenantsService.getAllApprenants();
-        return new ResponseEntity<>(apprenants, HttpStatus.OK);
+    public ResponseEntity<List<ApprenantDTO>> getAllApprenants() {
+        List<ApprenantDTO> apprenantsDTO = apprenantsService.getAllApprenants();
+        return new ResponseEntity<>(apprenantsDTO, HttpStatus.OK);
     }
 
     // Update an Apprenant by ID
     @PutMapping("/edit/{id}")
-    public ResponseEntity<Apprenant> updateApprenant(@PathVariable Long id, @RequestBody Apprenant apprenant) {
-        Apprenant updatedApprenant = apprenantsService.updateApprenant(id, apprenant);
+    public ResponseEntity<ApprenantDTO> updateApprenant(@PathVariable Long id, @RequestBody ApprenantDTO apprenantDTO) {
+        ApprenantDTO updatedApprenant = apprenantsService.updateApprenant(id, apprenantDTO);
         return new ResponseEntity<>(updatedApprenant, HttpStatus.OK);
     }
 
@@ -58,16 +58,16 @@ public class ApprenantController {
 
     // Find all Apprenants by Classe ID
     @GetMapping("/Allapprenants/byclasse/{classId}")
-    public ResponseEntity<List<Apprenant>> findAllByClasseId(@PathVariable Long classId) {
-        List<Apprenant> apprenants = apprenantsService.findAllByClasseId(classId);
-        return new ResponseEntity<>(apprenants, HttpStatus.OK);
+    public ResponseEntity<List<ApprenantDTO>> findAllByClasseId(@PathVariable Long classId) {
+        List<ApprenantDTO> apprenantsDTO = apprenantsService.findAllByClasseId(classId);
+        return new ResponseEntity<>(apprenantsDTO, HttpStatus.OK);
     }
 
     // Find Apprenant by ID with Optional handling
     @GetMapping("/FindAPPby/{id}")
-    public ResponseEntity<Apprenant> findApprenantById(@PathVariable Long id) {
-        Optional<Apprenant> apprenant = apprenantsService.findById(id);
-        return apprenant.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+    public ResponseEntity<ApprenantDTO> findApprenantById(@PathVariable Long id) {
+        Optional<ApprenantDTO> apprenantDTO = apprenantsService.findById(id);
+        return apprenantDTO.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 }

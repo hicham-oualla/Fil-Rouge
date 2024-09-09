@@ -1,69 +1,101 @@
 package com.project.Absence_gestion.Service;
 
+import com.project.Absence_gestion.Model.Classe;
+import com.project.Absence_gestion.Repository.ClasseRepository;
+import com.project.Absence_gestion.dto.ApprenantDTO;
 import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Repository.ApprenantRepository;
-import com.project.Absence_gestion.Service.ApprenantsService;
+import com.project.Absence_gestion.mapper.ApprenantMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ApprenantsServiceImpl implements ApprenantsService {
 
-
-    private ApprenantRepository apprenantRepository;
+    private final ApprenantRepository apprenantRepository;
+    private final ApprenantMapper apprenantMapper;
+    @Autowired
+    private ClasseRepository classeRepository;
 
     @Autowired
-    public ApprenantsServiceImpl(ApprenantRepository apprenantRepository) {
+    public ApprenantsServiceImpl(ApprenantRepository apprenantRepository, ApprenantMapper apprenantMapper) {
         this.apprenantRepository = apprenantRepository;
+        this.apprenantMapper = apprenantMapper;
     }
 
-    @Override
-    public Apprenant createApprenant(Apprenant apprenant) {
-        return apprenantRepository.save(apprenant);
-    }
+//    @Override
+//    public ApprenantDTO createApprenant(ApprenantDTO apprenantDTO) {
+//        Apprenant apprenant = apprenantMapper.toEntity(apprenantDTO);
+//        apprenant.setClasse(new Classe(apprenantDTO.getClasseId())); // Assuming you have a constructor or method to set classe
+//        Apprenant savedApprenant = apprenantRepository.save(apprenant);
+//        return apprenantMapper.toDto(savedApprenant);
+//    }
+@Override
+public ApprenantDTO createApprenant(ApprenantDTO apprenantDTO) {
+    Apprenant apprenant = apprenantMapper.toEntity(apprenantDTO);
+
+    // Fetch the Classe from the database using the classeId, return null if not found
+    Classe classe = classeRepository.findById(apprenantDTO.getClasseId()).orElse(null);
+
+    // Set the fetched Classe to the Apprenant (can be null if not found)
+    apprenant.setClasse(classe);
+
+    Apprenant savedApprenant = apprenantRepository.save(apprenant);
+    return apprenantMapper.toDto(savedApprenant);
+}
+
+
 
     @Override
-    public Apprenant getApprenantById(Long id) {
-        return apprenantRepository.findById(id)
+    public ApprenantDTO getApprenantById(Long id) {
+        Apprenant apprenant = apprenantRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Apprenant not found with id: " + id));
+        return apprenantMapper.toDto(apprenant);
     }
 
     @Override
-    public List<Apprenant> getAllApprenants() {
-        return apprenantRepository.findAll();
+    public List<ApprenantDTO> getAllApprenants() {
+        return apprenantRepository.findAll()
+                .stream()
+                .map(apprenantMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Apprenant updateApprenant(Long id, Apprenant apprenant) {
-        Apprenant existingApprenant = getApprenantById(id);
-        existingApprenant.setNom(apprenant.getNom());
-        existingApprenant.setEmail(apprenant.getEmail());
-        existingApprenant.setPassword(apprenant.getPassword());
-        existingApprenant.setRole(apprenant.getRole());
-        existingApprenant.setClasse(apprenant.getClasse());
-        existingApprenant.setAbsences(apprenant.getAbsences());
-        existingApprenant.setRetards(apprenant.getRetards());
-        existingApprenant.setJustifications(apprenant.getJustifications());
-        return apprenantRepository.save(existingApprenant);
+    public ApprenantDTO updateApprenant(Long id, ApprenantDTO apprenantDTO) {
+        Apprenant existingApprenant = apprenantRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Apprenant not found with id: " + id));
+        Apprenant apprenant = apprenantMapper.toEntity(apprenantDTO);
+        apprenant.setId(existingApprenant.getId());
+        apprenant.setClasse(new Classe(apprenantDTO.getClasseId())); // Update the classe field
+        Apprenant updatedApprenant = apprenantRepository.save(apprenant);
+        return apprenantMapper.toDto(updatedApprenant);
     }
 
     @Override
     public void deleteApprenant(Long id) {
+        if (!apprenantRepository.existsById(id)) {
+            throw new RuntimeException("Apprenant not found with id: " + id);
+        }
         apprenantRepository.deleteById(id);
     }
 
-
     @Override
-    public Optional<Apprenant> findById(Long id) {
-        return apprenantRepository.findById(id);
+    public List<ApprenantDTO> findAllByClasseId(Long classId) {
+        return apprenantRepository.findByClasseId(classId)
+                .stream()
+                .map(apprenantMapper::toDto)
+                .collect(Collectors.toList());
     }
 
+    @Override
+    public Optional<ApprenantDTO> findById(Long id) {
+        return apprenantRepository.findById(id)
+                .map(apprenantMapper::toDto);
+    }}
 
-@Override
-public List<Apprenant> findAllByClasseId(Long classId) {
-    return apprenantRepository.findByClasseId(classId);
-}
-}
+

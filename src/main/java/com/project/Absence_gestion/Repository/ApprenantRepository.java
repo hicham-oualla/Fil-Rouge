@@ -1,7 +1,6 @@
 package com.project.Absence_gestion.Repository;
 
 import com.project.Absence_gestion.Model.Apprenant;
-import com.project.Absence_gestion.dto.ApprenantDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,12 +10,13 @@ import java.util.Optional;
 
 public interface ApprenantRepository extends JpaRepository<Apprenant, Long> {
 
-    @Query(value = "SELECT * FROM personne WHERE classe_id =?1;", nativeQuery = true)
-    List<Apprenant> findByClasseId(Long classId);
+    // Using JPQL instead of a native query
+    @Query("SELECT a FROM Apprenant a WHERE a.classe.id = :classId")
+    List<Apprenant> findByClasseId(@Param("classId") Long classId);
 
-Optional<Apprenant> findApprenantByid(Long id);
-//    Optional<Apprenant> findByApprenantId(Long apprenantId);
-
-    @Override
+    // findById method already inherited from JpaRepository, no need to redefine it
     Optional<Apprenant> findById(Long id);
+
+    // Uncomment this if you want to query by a specific field related to Apprenant ID
+    // Optional<Apprenant> findByApprenantId(Long apprenantId);
 }

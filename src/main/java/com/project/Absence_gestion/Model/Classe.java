@@ -25,4 +25,7 @@ public class Classe {
     @OneToMany(mappedBy = "classe")
     @JsonIgnore
     private List<Apprenant> apprenants;
+
+    public Classe(Long classeId) {
+    }
 }
