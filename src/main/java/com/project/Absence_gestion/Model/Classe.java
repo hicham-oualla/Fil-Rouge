@@ -22,9 +22,10 @@ public class Classe {
     private String nom;
 
 
-    @OneToMany(mappedBy = "classe")
-    @JsonIgnore
+    // cascad
+    @OneToMany(mappedBy = "classe", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Apprenant> apprenants;
+
 
     public Classe(Long classeId) {
     }
