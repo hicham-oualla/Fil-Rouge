@@ -27,13 +27,7 @@ public class ApprenantsServiceImpl implements ApprenantsService {
         this.apprenantMapper = apprenantMapper;
     }
 
-//    @Override
-//    public ApprenantDTO createApprenant(ApprenantDTO apprenantDTO) {
-//        Apprenant apprenant = apprenantMapper.toEntity(apprenantDTO);
-//        apprenant.setClasse(new Classe(apprenantDTO.getClasseId())); // Assuming you have a constructor or method to set classe
-//        Apprenant savedApprenant = apprenantRepository.save(apprenant);
-//        return apprenantMapper.toDto(savedApprenant);
-//    }
+
 @Override
 public ApprenantDTO createApprenant(ApprenantDTO apprenantDTO) {
     Apprenant apprenant = apprenantMapper.toEntity(apprenantDTO);

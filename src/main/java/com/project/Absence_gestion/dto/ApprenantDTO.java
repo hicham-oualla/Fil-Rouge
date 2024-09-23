@@ -16,7 +16,11 @@ public class ApprenantDTO {
     private String email;
     private String password;
     private Role role;
-    private Long classeId; // Add this field
+    private Long classeId;
+    private String address;
+    private String phone;
+    private String IdNational;
+    // Add this field
 
     // Optionally include other fields if needed
     private List<Long> absences; // Example, adjust according to your requirements
