@@ -18,7 +18,9 @@ import java.util.List;
 @NoArgsConstructor
 public class Apprenant extends Personne {
 
-
+    private String address;
+    private String phone;
+    private String IdNational;
     @OneToMany(mappedBy = "apprenant")
     @JsonIgnore
 
