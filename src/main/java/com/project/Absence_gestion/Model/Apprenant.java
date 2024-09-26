@@ -2,6 +2,7 @@ package com.project.Absence_gestion.Model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.Absence_gestion.Model.enums.Role;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -15,7 +16,6 @@ import java.util.List;
 @Entity
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class Apprenant extends Personne {
 
     private String address;
@@ -39,4 +39,7 @@ public class Apprenant extends Personne {
     @JoinColumn(name = "classe_id")
     private Classe classe;
 
+    public Apprenant() {
+        this.setRole(Role.apprenant);
+    }
 }

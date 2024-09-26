@@ -2,14 +2,15 @@ package com.project.Absence_gestion.Service;
 
 import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Model.Classe;
+import com.project.Absence_gestion.dto.Classedto;
 
 import java.util.List;
 
 public interface ClasseService {
-    Classe saveClasse(Classe classe);
+    Classedto saveClasse(Classedto classe);
     List<Classe> getAllClasses();
     Classe getClasseById(Long id);
-    Classe updateClasse(Long id, Classe classe);
+    Classedto updateClasse(Long id, Classedto classe);
     void deleteClasse(Long id);
 
 }

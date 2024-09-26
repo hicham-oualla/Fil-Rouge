@@ -3,6 +3,8 @@ package com.project.Absence_gestion.Service;
 
 import com.project.Absence_gestion.Model.Classe;
 import com.project.Absence_gestion.Repository.ClasseRepository;
+import com.project.Absence_gestion.dto.Classedto;
+import com.project.Absence_gestion.mapper.ClassMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +14,14 @@ public class ClasseServiceImpl implements ClasseService{
 
     @Autowired
     private ClasseRepository classeRepository;
+    @Autowired
+    ClassMapper classMapper;
+
 
     @Override
-    public Classe saveClasse(Classe classe) {
-
-        return classeRepository.save(classe);
+    public Classedto saveClasse(Classedto classe) {
+        Classe classe1 = classMapper.toEntity(classe);
+        return classMapper.toDto(classeRepository.save(classe1));
     }
 
     @Override
@@ -31,13 +36,11 @@ public class ClasseServiceImpl implements ClasseService{
     }
 
     @Override
-    public Classe updateClasse(Long id, Classe classe) {
-        if (classeRepository.existsById(id)) {
-            classe.setId(id);
-            classe.setNom(classe.getNom());
-            return classeRepository.save(classe);
-        }
-        return null;
+    public Classedto updateClasse(Long id, Classedto classe) {
+       Classe classe1 =  classeRepository.findById(id).orElse(null);
+       classMapper.partialUpdate(classe,classe1);
+       Classe classeUpdated = classeRepository.save(classe1);
+       return classMapper.toDto(classeUpdated);
     }
 
     @Override
