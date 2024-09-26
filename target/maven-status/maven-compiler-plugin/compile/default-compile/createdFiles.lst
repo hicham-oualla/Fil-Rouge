@@ -31,6 +31,8 @@ com\project\Absence_gestion\Service\ClasseService.class
 com\project\Absence_gestion\Service\ApprenantsService.class
 com\project\Absence_gestion\dto\Classedto.class
 com\project\Absence_gestion\Model\enums\Role.class
+com\project\Absence_gestion\mapper\ClassMapper.class
+com\project\Absence_gestion\mapper\ClassMapperImpl.class
 com\project\Absence_gestion\Model\Retard.class
 com\project\Absence_gestion\dto\RetardDTO.class
 com\project\Absence_gestion\Repository\ApprenantRepository.class

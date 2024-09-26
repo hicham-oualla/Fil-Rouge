@@ -4,30 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2fc6027-793f-4a7d-a5f8-42dccfd24551" name="Changes" comment="modifier la realtion entre classe et apprenants delete en cascade">
+    <list default="true" id="a2fc6027-793f-4a7d-a5f8-42dccfd24551" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Conroller/ApprenantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Conroller/ApprenantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Apprenant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Apprenant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Service/ApprenantsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Service/ApprenantsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/dto/ApprenantDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/dto/ApprenantDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Absence_gestion-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Absence_gestion-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Absence_gestion-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/Absence_gestion-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Conroller/ApprenantController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Conroller/ApprenantController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Model/Apprenant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Model/Apprenant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Service/ApprenantsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Service/ApprenantsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/dto/ApprenantDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/dto/ApprenantDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/mapper/ApprenantMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/mapper/ApprenantMapperImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/AbsenceMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/AbsenceMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ApprenantMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ApprenantMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.project.Absence_gestion.AbsenceGestionApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.project.Absence_gestion.AbsenceGestionApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.project.Absence_gestion.AbsenceGestionApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.project.Absence_gestion.AbsenceGestionApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Absence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Absence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Justification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Justification.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -58,8 +58,10 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.AbsenceGestionApplication.executor": "Run",
-    "git-widget-placeholder": "Class-DTO",
+    "Spring Boot.AbsenceGestionApplication.executor": "Debug",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "Test__",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/user/Desktop/Enaa_app_Angulare/Filrouge_Angulare",
@@ -71,6 +73,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.project.Absence_gestion.Service" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="AbsenceGestionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Absence_gestion" />
@@ -133,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725873530058</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <option name="closed" value="true" />
+      <created>1727339715804</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727339715804</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,8 +159,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update de controller avec dto" />
-    <MESSAGE value="update" />
     <MESSAGE value="modifier la realtion entre classe et apprenants delete en cascade" />
-    <option name="LAST_COMMIT_MESSAGE" value="modifier la realtion entre classe et apprenants delete en cascade" />
+    <MESSAGE value="modifier entity class" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

@@ -1,6 +1,7 @@
 package com.project.Absence_gestion.Service;
 
 import com.project.Absence_gestion.Model.Classe;
+import com.project.Absence_gestion.Model.enums.Role;
 import com.project.Absence_gestion.Repository.ClasseRepository;
 import com.project.Absence_gestion.dto.ApprenantDTO;
 import com.project.Absence_gestion.Model.Apprenant;
@@ -32,12 +33,12 @@ public class ApprenantsServiceImpl implements ApprenantsService {
 public ApprenantDTO createApprenant(ApprenantDTO apprenantDTO) {
     Apprenant apprenant = apprenantMapper.toEntity(apprenantDTO);
 
-    // Fetch the Classe from the database using the classeId, return null if not found
+
     Classe classe = classeRepository.findById(apprenantDTO.getClasseId()).orElse(null);
 
-    // Set the fetched Classe to the Apprenant (can be null if not found)
-    apprenant.setClasse(classe);
 
+    apprenant.setClasse(classe);
+    apprenant.setRole(Role.apprenant);
     Apprenant savedApprenant = apprenantRepository.save(apprenant);
     return apprenantMapper.toDto(savedApprenant);
 }

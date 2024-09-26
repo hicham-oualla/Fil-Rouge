@@ -2,7 +2,10 @@ package com.project.Absence_gestion.Conroller;
 import com.project.Absence_gestion.Model.Classe;
 import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Service.ClasseService;
+import com.project.Absence_gestion.dto.Classedto;
+import com.project.Absence_gestion.mapper.ClassMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +18,13 @@ public class ClasseController {
     @Autowired
     private ClasseService classeService;
 
+    @Autowired
+    private ClassMapper classMapper;
+
 
     @PostMapping("/Add")
-    public ResponseEntity<Classe> createClasse(@RequestBody Classe classe) {
-        Classe savedClasse = classeService.saveClasse(classe);
+    public ResponseEntity<Classedto> createClasse(@RequestBody Classedto classe) {
+        Classedto savedClasse = classeService.saveClasse(classe);
         return ResponseEntity.ok(savedClasse);
     }
 
@@ -41,12 +47,9 @@ public class ClasseController {
 
 
     @PutMapping("/updateClasse/{id}")
-    public ResponseEntity<Classe> updateClasse(@PathVariable Long id, @RequestBody Classe classe) {
-        Classe updatedClasse = classeService.updateClasse(id, classe);
-        if (updatedClasse != null) {
-            return ResponseEntity.ok(updatedClasse);
-        }
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<Classedto> updateClasse(@PathVariable Long id, @RequestBody Classedto classe) {
+        Classedto updatedClasse = classeService.updateClasse(id, classe);
+        return new ResponseEntity<>(updatedClasse, HttpStatus.OK);
     }
 
 
