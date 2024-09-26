@@ -24,4 +24,10 @@ public class Justification {
 
     @ManyToOne
     @JoinColumn(name = "apprenant_id")
-    private Apprenant apprenant;    }
+    private Apprenant apprenant;
+
+    @ManyToOne
+    @JoinColumn(name = "absence_id")
+    private Absence absence;
+
+}

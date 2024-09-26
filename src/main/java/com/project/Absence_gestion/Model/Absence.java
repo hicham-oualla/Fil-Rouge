@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -32,5 +34,8 @@ public class Absence {
 
     @Enumerated(EnumType.STRING)
     private Etat_absence etat_absence;
+
+    @OneToMany(mappedBy = "absence", cascade = CascadeType.ALL)
+    private List<Justification> justification;
 
 }
