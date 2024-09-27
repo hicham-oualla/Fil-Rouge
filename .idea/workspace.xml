@@ -4,10 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2fc6027-793f-4a7d-a5f8-42dccfd24551" name="Changes" comment="update">
+    <list default="true" id="a2fc6027-793f-4a7d-a5f8-42dccfd24551" name="Changes" comment="creation de les method dans service">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Service/JustificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Service/JustificationService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Absence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Absence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Justification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Justification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Apprenant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Apprenant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/dto/ApprenantDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/dto/ApprenantDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/mapper/ApprenantMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/mapper/ApprenantMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Absence_gestion-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Absence_gestion-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Model/Absence.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Model/Absence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Model/Apprenant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Model/Apprenant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Model/Justification.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Model/Justification.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/dto/ApprenantDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/dto/ApprenantDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/mapper/ApprenantMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/mapper/ApprenantMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/AbsenceMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/AbsenceMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ApprenantMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ApprenantMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ClassMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ClassMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.project.Absence_gestion.AbsenceGestionApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.project.Absence_gestion.AbsenceGestionApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.project.Absence_gestion.AbsenceGestionApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.project.Absence_gestion.AbsenceGestionApplicationTests.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -58,13 +82,12 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.AbsenceGestionApplication.executor": "Debug",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Test__",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AbsenceGestionApplication.executor": "Run",
+    "git-widget-placeholder": "absence__justif",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Enaa_app_Angulare/Filrouge_Angulare",
+    "last_opened_file_path": "C:/Users/user/Desktop/Fil-Rouge/src/main/java/com/project/Absence_gestion",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -74,11 +97,13 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion" />
     </key>
-    <key name="CreateTestDialog.RecentsKey">
+    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.project.Absence_gestion.Service" />
+      <recent name="com.project.Absence_gestion.Repository" />
+      <recent name="com.project.Absence_gestion.Model" />
     </key>
   </component>
   <component name="RunManager">
@@ -143,15 +168,31 @@
       <option name="project" value="LOCAL" />
       <updated>1725873530058</updated>
     </task>
-    <task id="LOCAL-00005" summary="update">
+    <task id="LOCAL-00005" summary="Modifier dans entity justification">
       <option name="closed" value="true" />
-      <created>1727339715804</created>
+      <created>1727436689951</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1727339715804</updated>
+      <updated>1727436689951</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="creatrion de repository pour justification">
+      <option name="closed" value="true" />
+      <created>1727436722158</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727436722158</updated>
+    </task>
+    <task id="LOCAL-00007" summary="creation de les method dans service">
+      <option name="closed" value="true" />
+      <created>1727436759004</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727436759004</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,9 +200,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update de controller avec dto" />
-    <MESSAGE value="modifier la realtion entre classe et apprenants delete en cascade" />
-    <MESSAGE value="modifier entity class" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="modifier la realtion entre classe et apprenants delete en cascade" />
+    <MESSAGE value="Modifier dans entity justification" />
+    <MESSAGE value="creatrion de repository pour justification" />
+    <MESSAGE value="creation de les method dans service" />
+    <option name="LAST_COMMIT_MESSAGE" value="creation de les method dans service" />
   </component>
 </project>

@@ -17,7 +17,7 @@ public interface ApprenantMapper {
             @Mapping(source = "classe.id", target = "classeId"),
             @Mapping(target = "absences", ignore = true),
             @Mapping(target = "retards", ignore = true),
-            @Mapping(target = "justifications", ignore = true)
+
     })
     ApprenantDTO toDto(Apprenant apprenant);
 
@@ -25,7 +25,7 @@ public interface ApprenantMapper {
             @Mapping(source = "classeId", target = "classe.id"),
             @Mapping(target = "absences", ignore = true),
             @Mapping(target = "retards", ignore = true),
-            @Mapping(target = "justifications", ignore = true)
+
     })
     Apprenant toEntity(ApprenantDTO apprenantDTO);
 
