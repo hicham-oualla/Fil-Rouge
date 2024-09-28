@@ -2,6 +2,8 @@ C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Absenc
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Conroller\AbsenceController.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Conroller\ApprenantController.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Conroller\ClasseController.java
+C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Conroller\JustificationController.java
+C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Conroller\PdfController.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Conroller\RetardController.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\dto\AbsenceDTO.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\dto\ApprenantDTO.java
@@ -18,12 +20,15 @@ C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Model\
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Model\enums\Etat_retard.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Model\enums\Role.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Model\Justification.java
+C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Model\PdfData.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Model\Personne.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Model\Retard.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Repository\AbesenceRepository.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Repository\AdminRepository.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Repository\ApprenantRepository.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Repository\ClasseRepository.java
+C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Repository\JustificationRepository.java
+C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Repository\PdfRepository.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Repository\PerssoneRepository.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Repository\RetardRepository.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Service\AbsenceService.java
@@ -32,5 +37,8 @@ C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Servic
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Service\ApprenantsServiceImpl.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Service\ClasseService.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Service\ClasseServiceImpl.java
+C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Service\JustificationService.java
+C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Service\PdfService.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Service\RetardService.java
 C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\Service\RetardServiceImpl.java
+C:\Users\user\Desktop\Fil-Rouge\src\main\java\com\project\Absence_gestion\util\PdfUtils.java

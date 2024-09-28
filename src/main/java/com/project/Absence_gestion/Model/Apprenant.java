@@ -30,9 +30,6 @@ public class Apprenant extends Personne {
     @JsonIgnore
     private List<Retard> retards;
 
-    @OneToMany(mappedBy = "apprenant")
-    @JsonIgnore
-    private List<Justification> justifications;
 
     @ManyToOne
     @JsonIgnore
