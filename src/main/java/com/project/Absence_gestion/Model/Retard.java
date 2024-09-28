@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -30,6 +31,10 @@ public class Retard {
     @ManyToOne
     @JoinColumn(name = "apprenant_id")
     private Apprenant apprenant;
+
+    @OneToMany(mappedBy = "retard", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<JustificationRetard> justificationRetard;
 
 
 
