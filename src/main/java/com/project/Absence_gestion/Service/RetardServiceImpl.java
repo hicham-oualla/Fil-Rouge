@@ -78,4 +78,15 @@ public class RetardServiceImpl implements RetardService {
             return Optional.empty();
         }
     }
-}
+    @Override
+    public ResponseEntity<Retard> changeStatutRetard(Long retardId, Etat_retard etat_retard) {
+        Optional<Retard> retardOptional = retardRepository.findById(retardId);
+        if (retardOptional.isPresent()) {
+            Retard retard = retardOptional.get();
+            retard.setEtat_retard(etat_retard);  // Set new status
+            retardRepository.save(retard);      // Save the updated retard
+            return ResponseEntity.ok(retard);
+        } else {
+            return ResponseEntity.notFound().build();  // Return 404 if retard not found
+        }
+}}

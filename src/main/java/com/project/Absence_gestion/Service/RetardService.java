@@ -2,6 +2,7 @@ package com.project.Absence_gestion.Service;
 
 import com.project.Absence_gestion.Model.Apprenant;
 import com.project.Absence_gestion.Model.Retard;
+import com.project.Absence_gestion.Model.enums.Etat_retard;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -15,4 +16,5 @@ public interface RetardService {
     void deleteRetard(Long id);
     long countRetardsByApprenant(Apprenant apprenant);
     Optional<List<Retard>> findByApprenant(Long apprenantId);
+    ResponseEntity<Retard> changeStatutRetard(Long retardId, Etat_retard etat_retard);
 }
