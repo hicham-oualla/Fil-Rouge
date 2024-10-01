@@ -75,8 +75,8 @@ public class RetardController {
         return retards.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-    @PutMapping("/{retardId}/change-status")
-    public ResponseEntity<Retard> changeStatutRetard(@PathVariable Long retardId, @RequestParam Etat_retard etat_retard) {
-        return retardService.changeStatutRetard(retardId, etat_retard);
-    }
+//    @PutMapping("/{retardId}/change-status")
+//    public ResponseEntity<Retard> changeStatutRetard(@PathVariable Long retardId, @RequestParam Etat_retard etat_retard) {
+//        return retardService.changeStatutRetard(retardId, etat_retard);
+//    }
 }
