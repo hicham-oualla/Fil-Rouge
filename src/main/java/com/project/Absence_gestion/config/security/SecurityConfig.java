@@ -57,7 +57,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         req->req.requestMatchers("/login/**","/api/auth/**","/api/apprenants/**")
                                 .permitAll()
-                                .requestMatchers("/api/equipment/admin/**","/api/faults/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/api","/api/faults/admin/**").hasAuthority("ADMIN")
                                 .anyRequest()
                                 .authenticated()
                 )
