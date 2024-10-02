@@ -1,5 +1,8 @@
 package com.project.Absence_gestion.Conroller;
 
+import com.project.Absence_gestion.Model.Apprenant;
+import com.project.Absence_gestion.Model.AuthenticationResponse;
+import com.project.Absence_gestion.Service.AuthenticationService;
 import com.project.Absence_gestion.dto.ApprenantDTO;
 import com.project.Absence_gestion.Service.ApprenantsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +19,25 @@ import java.util.Optional;
 public class ApprenantController {
 
     private final ApprenantsService apprenantsService;
+    @Autowired
+    private  AuthenticationService authenticationService;
 
     @Autowired
     public ApprenantController(ApprenantsService apprenantsService) {
         this.apprenantsService = apprenantsService;
     }
 
-    // Create a new Apprenant
-    @PostMapping("/ADD")
-    public ResponseEntity<ApprenantDTO> createApprenant(@RequestBody ApprenantDTO apprenantDTO) {
-        ApprenantDTO createdApprenant = apprenantsService.createApprenant(apprenantDTO);
-        return new ResponseEntity<>(createdApprenant, HttpStatus.CREATED);
-    }
 
+
+    // Endpoint to register a new Apprenant
+    @PostMapping("/Add")
+    public ResponseEntity<AuthenticationResponse> registerApprenant(@RequestBody Apprenant apprenant) {
+        AuthenticationResponse response = authenticationService.registerApprenant(apprenant);
+        if ("Apprentant already exist".equals(response.getMessage())) {
+            return ResponseEntity.badRequest().body(response);
+        }
+        return ResponseEntity.ok(response);
+    }
     // Get an Apprenant by ID
     @GetMapping("/getApprenants/{id}")
     public ResponseEntity<ApprenantDTO> getApprenantById(@PathVariable Long id) {

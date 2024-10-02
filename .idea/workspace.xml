@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2fc6027-793f-4a7d-a5f8-42dccfd24551" name="Changes" comment="creation de justification controller">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Conroller/RetardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Conroller/RetardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Personne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Model/Personne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Service/RetardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Service/RetardService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Service/RetardServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Service/RetardServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/AbsenceMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/AbsenceMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ApprenantMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ApprenantMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ClassMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/project/Absence_gestion/mapper/ClassMapperImpl.java" afterDir="false" />
+    <list default="true" id="a2fc6027-793f-4a7d-a5f8-42dccfd24551" name="Changes" comment="CustomAccessDeniedHandler Pour la securite">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/config/security/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="security" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,7 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.AbsenceGestionApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "spring.security",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/user/Desktop/Fil-Rouge/src/main/java/com/project/Absence_gestion",
@@ -76,6 +68,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -190,7 +187,95 @@
       <option name="project" value="LOCAL" />
       <updated>1727437104592</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="modificer l entity de personne">
+      <option name="closed" value="true" />
+      <created>1727792593744</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727792593744</updated>
+    </task>
+    <task id="LOCAL-00011" summary="creation se jwt service">
+      <option name="closed" value="true" />
+      <created>1727874990285</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727874990285</updated>
+    </task>
+    <task id="LOCAL-00012" summary="ajouet function de find by email">
+      <option name="closed" value="true" />
+      <created>1727875031278</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875031278</updated>
+    </task>
+    <task id="LOCAL-00013" summary="creation de Jwtauthentification Filter">
+      <option name="closed" value="true" />
+      <created>1727875081068</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875081068</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ccreation de athentification responce">
+      <option name="closed" value="true" />
+      <created>1727875106202</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875106202</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update de ejouter une function">
+      <option name="closed" value="true" />
+      <created>1727875151373</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875151373</updated>
+    </task>
+    <task id="LOCAL-00016" summary="creattion de authentification sevice">
+      <option name="closed" value="true" />
+      <created>1727875182176</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875182176</updated>
+    </task>
+    <task id="LOCAL-00017" summary="ajouter une exeption poure &quot;person not found&quot;in security">
+      <option name="closed" value="true" />
+      <created>1727875227542</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875227542</updated>
+    </task>
+    <task id="LOCAL-00018" summary="creation de security config pour les autoristaion">
+      <option name="closed" value="true" />
+      <created>1727875263166</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875263166</updated>
+    </task>
+    <task id="LOCAL-00019" summary="creation de personneservice &quot;method de loadby username&quot;">
+      <option name="closed" value="true" />
+      <created>1727875309161</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875309161</updated>
+    </task>
+    <task id="LOCAL-00020" summary="CustomAccessDeniedHandler Pour la securite">
+      <option name="closed" value="true" />
+      <created>1727875610065</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1727875610065</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +292,17 @@
     <MESSAGE value="creation de justification controller" />
     <MESSAGE value="security" />
     <MESSAGE value="add security" />
-    <option name="LAST_COMMIT_MESSAGE" value="add security" />
+    <MESSAGE value="modificer l entity de personne" />
+    <MESSAGE value="creation se jwt service" />
+    <MESSAGE value="ajouet function de find by email" />
+    <MESSAGE value="creation de Jwtauthentification Filter" />
+    <MESSAGE value="ccreation de athentification responce" />
+    <MESSAGE value="update de ejouter une function" />
+    <MESSAGE value="creattion de authentification sevice" />
+    <MESSAGE value="ajouter une exeption poure &quot;person not found&quot;in security" />
+    <MESSAGE value="creation de security config pour les autoristaion" />
+    <MESSAGE value="creation de personneservice &quot;method de loadby username&quot;" />
+    <MESSAGE value="CustomAccessDeniedHandler Pour la securite" />
+    <option name="LAST_COMMIT_MESSAGE" value="CustomAccessDeniedHandler Pour la securite" />
   </component>
 </project>
