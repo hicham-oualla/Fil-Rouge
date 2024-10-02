@@ -1,6 +1,7 @@
 package com.project.Absence_gestion.Repository;
 
 import com.project.Absence_gestion.Model.Apprenant;
+import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,6 +18,7 @@ public interface ApprenantRepository extends JpaRepository<Apprenant, Long> {
     // findById method already inherited from JpaRepository, no need to redefine it
     Optional<Apprenant> findById(Long id);
 
+Optional<Apprenant> findByEmail (String email);
     // Uncomment this if you want to query by a specific field related to Apprenant ID
     // Optional<Apprenant> findByApprenantId(Long apprenantId);
 }
