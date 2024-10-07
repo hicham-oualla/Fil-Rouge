@@ -12,5 +12,7 @@ public interface ClasseService {
     Classe getClasseById(Long id);
     Classedto updateClasse(Long id, Classedto classe);
     void deleteClasse(Long id);
+    Long getNumberOfClasses();
+    long count();
 
 }
