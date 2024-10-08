@@ -58,6 +58,11 @@ public class ClasseController {
         classeService.deleteClasse(id);
         return ResponseEntity.noContent().build();
     }
+    @GetMapping("/count")
+    public ResponseEntity<Long> count() {
+        Long count = classeService.count();
+        return ResponseEntity.ok(count);
+    }
 
 
 

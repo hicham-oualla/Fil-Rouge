@@ -31,7 +31,7 @@ public class ApprenantController {
 
     // Endpoint to register a new Apprenant
     @PostMapping("/Add")
-    public ResponseEntity<AuthenticationResponse> registerApprenant(@RequestBody Apprenant apprenant) {
+    public ResponseEntity<AuthenticationResponse> registerApprenant(@RequestBody ApprenantDTO apprenant) {
         AuthenticationResponse response = authenticationService.registerApprenant(apprenant);
         if ("Apprentant already exist".equals(response.getMessage())) {
             return ResponseEntity.badRequest().body(response);

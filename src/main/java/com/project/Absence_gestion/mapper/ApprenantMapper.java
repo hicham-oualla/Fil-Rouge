@@ -14,7 +14,7 @@ public interface ApprenantMapper {
     ApprenantMapper INSTANCE = Mappers.getMapper(ApprenantMapper.class);
 
     @Mappings({
-            @Mapping(source = "classe.id", target = "classeId"),
+            @Mapping(source = "classe.id", target = "classe"),
             @Mapping(target = "absences", ignore = true),
             @Mapping(target = "retards", ignore = true),
 
@@ -22,7 +22,7 @@ public interface ApprenantMapper {
     ApprenantDTO toDto(Apprenant apprenant);
 
     @Mappings({
-            @Mapping(source = "classeId", target = "classe.id"),
+            @Mapping(source = "classe", target = "classe.id"),
             @Mapping(target = "absences", ignore = true),
             @Mapping(target = "retards", ignore = true),
 

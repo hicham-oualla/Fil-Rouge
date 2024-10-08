@@ -42,3 +42,4 @@ public class Absence {
     private List<Justification> justification;
 
 }
+

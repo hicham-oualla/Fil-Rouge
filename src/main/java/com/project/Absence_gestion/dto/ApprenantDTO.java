@@ -15,7 +15,7 @@ public class ApprenantDTO {
     private String email;
     private String password;
     private Role role;
-    private Long classeId;
+    private Long classe;
     private String address;
     private String phone;
     private String idNational; // Updated to follow camel case

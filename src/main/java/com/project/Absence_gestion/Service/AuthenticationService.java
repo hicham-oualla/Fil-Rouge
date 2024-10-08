@@ -1,14 +1,13 @@
 package com.project.Absence_gestion.Service;
 
-import com.project.Absence_gestion.Model.Admin;
-import com.project.Absence_gestion.Model.Apprenant;
-import com.project.Absence_gestion.Model.AuthenticationResponse;
-import com.project.Absence_gestion.Model.Personne;
+import com.project.Absence_gestion.Model.*;
 import com.project.Absence_gestion.Model.enums.Role;
 import com.project.Absence_gestion.Repository.AdminRepository;
 import com.project.Absence_gestion.Repository.ApprenantRepository;
+import com.project.Absence_gestion.Repository.ClasseRepository;
 import com.project.Absence_gestion.Repository.PerssoneRepository;
 import com.project.Absence_gestion.Service.security.JwtService;
+import com.project.Absence_gestion.dto.ApprenantDTO;
 import com.project.Absence_gestion.exeption.PersonNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +28,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final PerssoneRepository perssoneRepository;
     private final AuthenticationManager authenticationManager;
+    private final ClasseRepository classeRepository;
 
 
 
@@ -37,7 +37,7 @@ public class AuthenticationService {
         //check if admin  already  exist
         if(adminRepository.findByEmail(admin.getEmail()).isPresent())
         {
-            return new AuthenticationResponse("null","Admin already exist",admin.getId());
+            return new AuthenticationResponse("null","Admin already exist",admin.getId(),admin.getRole().name());
         }
 
         Admin newAdmin = new Admin();
@@ -48,27 +48,33 @@ public class AuthenticationService {
         newAdmin.setRole(Role.admin);
         adminRepository.save(newAdmin);
         String token = jwtService.generateToken(newAdmin);
-        return new AuthenticationResponse(token,"Admin successfully registered",newAdmin.getId());
+        return new AuthenticationResponse(token,"Admin successfully registered",newAdmin.getId(),newAdmin.getRole().name());
     }
 
 
-public AuthenticationResponse registerApprenant(Apprenant apprenant) {
-        if (apprenantRepository.findByEmail(apprenant.getEmail()).isPresent()){
-            return new AuthenticationResponse("null","Apprentant already exist",apprenant.getId());
+    // Registering an apprenant (learner)
+    public AuthenticationResponse registerApprenant(ApprenantDTO apprenantDTO) {
+        Classe classe = classeRepository.findById(apprenantDTO.getClasse()).orElse(null);
+        if (apprenantRepository.findByEmail(apprenantDTO.getEmail()).isPresent()) {
+            return null;
         }
+
         Apprenant newApprenant = new Apprenant();
-        newApprenant.setEmail(apprenant.getEmail());
-        newApprenant.setNom(apprenant.getNom());
+        newApprenant.setEmail(apprenantDTO.getEmail());
+        newApprenant.setNom(apprenantDTO.getNom());
         newApprenant.setRole(Role.apprenant);
-        newApprenant.setPassword(passwordEncoder.encode(apprenant.getPassword()));
-        newApprenant.setAddress(apprenant.getAddress());
-        newApprenant.setClasse(apprenant.getClasse());
-        newApprenant.setPhone(apprenant.getPhone());
-        newApprenant.setIdNational(apprenant.getIdNational());
-        apprenentRepository.save(newApprenant);
+        newApprenant.setPassword(passwordEncoder.encode(apprenantDTO.getPassword()));
+        newApprenant.setAddress(apprenantDTO.getAddress());
+        newApprenant.setClasse(classe); // Assuming you're storing class by ID
+        newApprenant.setPhone(apprenantDTO.getPhone());
+        newApprenant.setIdNational(apprenantDTO.getIdNational());
+
+
+        apprenantRepository.save(newApprenant);
         String token = jwtService.generateToken(newApprenant);
-    return new AuthenticationResponse(token,"Apprenant successfully registered",newApprenant.getId());
-}
+
+        return new AuthenticationResponse(token, "Apprenant successfully registered", newApprenant.getId(),newApprenant.getRole().name());
+    }
 
 
     public AuthenticationResponse authenticate(Personne request) {
@@ -81,7 +87,7 @@ public AuthenticationResponse registerApprenant(Apprenant apprenant) {
         Personne character = perssoneRepository.findByEmail(request.getUsername()).orElseThrow(()->(new PersonNotFoundException("no character found with "+request.getUsername()+" username")));
         String jwt = jwtService.generateToken(character);
 
-        return new AuthenticationResponse(jwt,"login was successful",character.getId());
+        return new AuthenticationResponse(jwt,"login was successful",character.getId(),character.getRole().name());
     }
 
 }

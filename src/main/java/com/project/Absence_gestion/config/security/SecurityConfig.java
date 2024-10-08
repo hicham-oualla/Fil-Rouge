@@ -55,11 +55,13 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 //2
                 .authorizeHttpRequests(
-                        req->req.requestMatchers("/login/**","/api/auth/**","/api/apprenants/**")
+                        req->req.requestMatchers("/login/**","/api/auth/**",
+                                        "/api/**")
                                 .permitAll()
-                                .requestMatchers("/api","/api/faults/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/api","/api/classes/**").permitAll()
+                                .requestMatchers("/api","/api/classes/**").hasAuthority("apprenant")
                                 .anyRequest()
-                                .authenticated()
+                                .permitAll()
                 )
                 //3
                 .userDetailsService(personService)
