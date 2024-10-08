@@ -47,6 +47,16 @@ public class ClasseServiceImpl implements ClasseService{
     public void deleteClasse(Long id) {
         classeRepository.deleteById(id);
     }
+    @Override
+    public Long getNumberOfClasses() {
+        // Count and return the number of classes
+        return classeRepository.count();
+    }
+
+    @Override
+    public long count() {
+        return  classeRepository.count();
+    }
 
 
 }

@@ -13,6 +13,7 @@ import java.util.Optional;
 
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/absences")
 public class AbsenceController {
 

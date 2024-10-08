@@ -13,4 +13,7 @@ public class AuthenticationResponse {
     private String message;
     @JsonProperty("character_id")
     private Long characterId;
+    @JsonProperty("role")
+    private String role;
+
 }

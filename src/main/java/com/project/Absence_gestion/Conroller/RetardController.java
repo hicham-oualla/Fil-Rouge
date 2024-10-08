@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/retards")
+@CrossOrigin(origins = "*")
 public class RetardController {
 
     @Autowired

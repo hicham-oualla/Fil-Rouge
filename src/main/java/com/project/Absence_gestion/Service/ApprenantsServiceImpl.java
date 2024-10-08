@@ -34,7 +34,7 @@ public ApprenantDTO createApprenant(ApprenantDTO apprenantDTO) {
     Apprenant apprenant = apprenantMapper.toEntity(apprenantDTO);
 
 
-    Classe classe = classeRepository.findById(apprenantDTO.getClasseId()).orElse(null);
+    Classe classe = classeRepository.findById(apprenantDTO.getClasse()).orElse(null);
 
 
     apprenant.setClasse(classe);
@@ -66,7 +66,12 @@ public ApprenantDTO createApprenant(ApprenantDTO apprenantDTO) {
                 .orElseThrow(() -> new RuntimeException("Apprenant not found with id: " + id));
         Apprenant apprenant = apprenantMapper.toEntity(apprenantDTO);
         apprenant.setId(existingApprenant.getId());
-        apprenant.setClasse(new Classe(apprenantDTO.getClasseId())); // Update the classe field
+//        apprenant.setClasse(new Classe(apprenantDTO.getClasseId()));
+        apprenant.setIdNational(apprenantDTO.getIdNational());
+        apprenant.setAddress(apprenantDTO.getAddress());
+        apprenant.setPassword(apprenantDTO.getPassword());
+        apprenant.setPhone(apprenantDTO.getPhone());
+        apprenant.setIdNational(apprenantDTO.getIdNational());
         Apprenant updatedApprenant = apprenantRepository.save(apprenant);
         return apprenantMapper.toDto(updatedApprenant);
     }
