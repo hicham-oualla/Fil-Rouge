@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/justifications")
 public class JustificationController {
 

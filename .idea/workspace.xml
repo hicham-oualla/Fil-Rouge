@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2fc6027-793f-4a7d-a5f8-42dccfd24551" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/882338bc-629a-4840-9dbd-fb618c2c2eeb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/882338bc-629a-4840-9dbd-fb618c2c2eeb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Conroller/JustificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Conroller/JustificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Conroller/JustificationRetardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/Conroller/JustificationRetardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/Absence_gestion/config/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Conroller/JustificationRetardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/Absence_gestion/Conroller/JustificationRetardController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +53,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.AuthenticationServiceTest.executor": "Run",
+    "JUnit.AuthenticationServiceTest.testAuthenticate_Success.executor": "Run",
+    "JUnit.ClasseServiceImplTest.executor": "Run",
+    "JUnit.JustificationRetardServiceTest.executor": "Run",
     "Maven.Absence_gestion [clean].executor": "Run",
     "Maven.Absence_gestion [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -86,7 +93,38 @@
       <recent name="com.project.Absence_gestion.Model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClasseServiceImplTest">
+  <component name="RunManager" selected="JUnit.JustificationServiceTest">
+    <configuration name="AuthenticationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Absence_gestion" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.Absence_gestion.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.Absence_gestion.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.project.Absence_gestion.Service.AuthenticationServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationServiceTest.testAuthenticate_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Absence_gestion" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.Absence_gestion.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.Absence_gestion.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.project.Absence_gestion.Service.AuthenticationServiceTest" />
+      <option name="METHOD_NAME" value="testAuthenticate_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClasseServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Absence_gestion" />
       <extension name="coverage">
@@ -102,6 +140,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JustificationRetardServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Absence_gestion" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.Absence_gestion.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.Absence_gestion.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.project.Absence_gestion.Service.JustificationRetardServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JustificationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Absence_gestion" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.Absence_gestion.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.project.Absence_gestion.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.project.Absence_gestion.Service.JustificationServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AbsenceGestionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Absence_gestion" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.Absence_gestion.AbsenceGestionApplication" />
@@ -111,6 +179,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JustificationServiceTest" />
+        <item itemvalue="JUnit.AuthenticationServiceTest" />
+        <item itemvalue="JUnit.AuthenticationServiceTest.testAuthenticate_Success" />
+        <item itemvalue="JUnit.JustificationRetardServiceTest" />
         <item itemvalue="JUnit.ClasseServiceImplTest" />
       </list>
     </recent_temporary>
@@ -136,6 +208,7 @@
       <workItem from="1726049963493" duration="1192000" />
       <workItem from="1726649628046" duration="4426000" />
       <workItem from="1727901027352" duration="36758000" />
+      <workItem from="1728467665078" duration="6525000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -313,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728409640395</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="update">
+      <option name="closed" value="true" />
+      <created>1728411606070</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1728411606070</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
